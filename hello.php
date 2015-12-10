@@ -130,6 +130,83 @@ else
 	echo "L'elemento 11 non esiste";
 }
 
+echo "<br>";
+
+
+//CICLO FOR
+// for(variabile;condizione;incremento) {  ciclo  }
+for($i=0;$i<10;$i++)
+{
+		echo "Ciclo Numero: ".$i;
+		echo "<br />";	
+}
+
+
+//per contare il numero di caratteri di una stringa posso usare "strlen($stringa)"
+// es
+$nome = "andrea";
+
+strlen($nome); //con un echo, stamperà "6"
+
+
+echo "<br />";
+echo "<br />";
+
+//le stringhe possono essere indicizzate come array, dove il primo carattere avrà indice 0, il secondo indice 1 etc etc.
+// es
+
+for($i=0;$i<strlen($nome);$i++)
+{
+	
+	echo $nome[strlen($nome)-$i-1];	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 
