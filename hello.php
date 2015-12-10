@@ -52,7 +52,7 @@ echo $miaVar;
 <?php
 
 //gli ARRAY
-//gli array sono contenitori e si esprime con:
+//gli array sono contenitori e si esprimono con:
 
 $lista = array();
 //oppure
@@ -208,6 +208,14 @@ $dizionario = array("fish" => "pesce", "snail" => "lumaca","horse" => "horse","b
 
 $dizionario["cat"] = "gatto";
 $dizionario["dog"] = "cane";
+
+//questa funzione ordina gli ELEMENTI dell'array in ordine alfabetico
+asort($dizionario);
+
+//ksort invece ordina le CHIAVI dell'array in ordine alfabetico
+ksort($dizionario);
+
+//per invertire l'ordine (alfabetico inverso) si usano krsort($array) e arsort($array)
 
 foreach($dizionario as $eng => $ita)
 {
