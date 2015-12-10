@@ -163,10 +163,26 @@ for($i=0;$i<strlen($nome);$i++)
 
 
 
+echo "<br />";
+echo "<br />";
 
 
 
+//FUNZIONI
+//Servono per elaborare dei dati, o delle variabili
+// si definiscono con "function nomefunzione($var1,$var2,$varN) { funzione - return risultato}
+//es
 
+$numero = 5;
+function miaFunz($var)
+{
+	$var++;
+	return $var;
+}
+echo $numero;
+echo miaFunz($numero);
+
+echo ribaltaStringa("pippo");
 
 
 
