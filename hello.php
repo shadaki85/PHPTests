@@ -171,6 +171,8 @@ echo "<br />";
 //FUNZIONI
 //Servono per elaborare dei dati, o delle variabili
 // si definiscono con "function nomefunzione($var1,$var2,$varN) { funzione - return risultato}
+// il codice delle funzioni è ISOLATO dal resto del programma. una variabile dichiarata all'interno della funzione
+// non sarà richiamabile all'esterno di essa
 //es
 
 $numero = 5;
@@ -182,10 +184,36 @@ function miaFunz($var)
 echo $numero;
 echo miaFunz($numero);
 
-echo ribaltaStringa("pippo");
+
+echo "<br />";
+echo "<br />";
+
+//per chiamare un file php con dentro funzioni usiamo INCLUDE
+include "funzioni.php";
 
 
+echo ribaltaStringa("ribaltato!");
 
+echo "<br />";
+echo "<br />";
+
+
+//ARRAY ASSOCIATIVI
+
+//si inizializzano come gli altri array
+//$nomearray = array();
+
+//posso anche inizializzarlo ed inserire i valori direttamente
+$dizionario = array("fish" => "pesce", "snail" => "lumaca","horse" => "horse","bird"=>"uccello");
+
+$dizionario["cat"] = "gatto";
+$dizionario["dog"] = "cane";
+
+foreach($dizionario as $eng => $ita)
+{
+	echo "A '".$eng."' corrisponde '".$ita."'";
+	echo "<br />";
+}
 
 
 
