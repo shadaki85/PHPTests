@@ -2,9 +2,9 @@
 
 if (isset($_POST["nomeUtente"]) && isset($_POST["anniUtente"])) {
 	
-	if (($_POST["nomeUtente"] != "") && ($_POST["anniUtente"] != ""))
+	if (($_POST["nomeUtente"] != "") && ($_POST["anniUtente"] != "") && (is_numeric($_POST["anniUtente"])))
 	{
-		echo "Ciao, ".$_POST["nomeUtente"].", hai ".$_POST["anniUtente"]." anni!";
+		echo "Ciao, ".strtoupper(substr($_POST["nomeUtente"],0,1)).substr($_POST["nomeUtente"],1).", hai ".$_POST["anniUtente"]." anni!";
 	}
 	elseif ($_POST["nomeUtente"] == "")
 	{
@@ -13,11 +13,15 @@ if (isset($_POST["nomeUtente"]) && isset($_POST["anniUtente"])) {
 	elseif ($_POST["anniUtente"] == "")
 	{
 		echo "Perche non vuoi dirmi quanti anni hai? :(";
-	}		
+	}
+	elseif (!(is_numeric($_POST["anniUtente"])))
+	{
+		echo "'".$_POST["anniUtente"]."' is not a number!";
+	}	
 }
 else
 {
-	echo "I'm sorry, you can't access this page directly!";
+	echo "I'm sorry, you can't directly access this page!";
 }
 
 ?>
