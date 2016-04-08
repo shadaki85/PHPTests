@@ -1,48 +1,62 @@
-<html>
-	<form method="POST">
-	Inserisci il cibo da cercare: <input type="text" name="cibo" />
-	<input type="submit" value="Cerca" />
-	</form>
-</html>
-
-
-
-
 <?php
-
+////MODEL/////
 include "database_cibi.php";
 
 
-if(isset($_POST["cibo"]))
-{
-	$cibo=$_POST["cibo"];
-	if (isset($cibieingredienti[$cibo]))
-	{
-		echo "Ecco gli ingredienti di '$cibo':  $cibieingredienti[$cibo].";
-	}
-	else
-	{
-		echo "'$cibo' non trovato!";
-	}
-}
-else
-{
-	echo "Valori possibili: ";
-	
-	$htmlno = array("è","ö");
-	$htmlyes = array("&egrave;","&ouml;");
 
-	foreach ($listadicibi as $i => $el)
+
+////CONTROLLER////
+function populate($listacibi)
+{
+	
+	foreach ($listacibi as $i=>$liste)
 	{
-		echo str_replace($htmlno, $htmlyes, $el);
-		if (($i+1) != count($listadicibi))
+		$alltogheter[]= explode(", ",$listacibi[$i]);
+
+	}
+	
+	foreach ($alltogheter as $key=>$ingredienti)
+	{
+		foreach ($ingredienti as $key=>$ingrediente)
 		{
-			echo ", ";
-		}
-		else
-		{
-			echo ".";
+			$finalarray[] = $ingrediente;
 		}
 	}
+	
+	$finalarray = array_unique($finalarray);
+	
+	foreach ($finalarray as $singleingredient)
+	{
+		echo "<option value='$singleingredient'>$singleingredient</option>"."<br />";
+	}
+			//echo "<option value='$ingrediente'>$ingrediente</option>"."<br />";	
 }
+
+function search($listacibi,$key)
+{
+	foreach ($listacibi as $cibo=>$ingredienti)
+	{
+		if(strpos($ingredienti, $key)  !== false)
+		{
+			echo "'".$key."' presente in: '".htmlentities($cibo)."' ($ingredienti)";
+			echo "<br />";
+		}
+	}	
+}
+
+
+//////VIEW/////
 ?>
+
+<html>
+	<form method="POST">
+		<select name="cibo">
+			Inserisci la chiave da cercare:
+			<?php populate($cibieingredienti); ?>		
+		</select>
+	<input type="submit" value="Cerca" />
+	</form>
+	<br />
+	<br />
+	<?php if(isset($_POST["cibo"])){search($cibieingredienti,$_POST["cibo"]);}?>
+</html>

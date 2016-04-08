@@ -1,0 +1,15 @@
+SESSIONI
+
+
+
+Cookie 
+	- E' una struttura dati simile a un dizionario/array associativo generato dal server che lo invia al client.
+	- Viene inoltrato al server di provenienza, alla successiva richiesta http da parte del client
+	
+Login
+	-Nel login, all'atto dell'autenticazione da parte del client, il server invia un cookie al client e lo esige 
+	dal client ad ogni successiva richiesta http.
+
+Per gestire la sessione in PHP si usano:
+	-session_start() -> genera il cookie con i dati della sessione e lo invia al client
+	-session_destroy() -> invalida la sessione corrente

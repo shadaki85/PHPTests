@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />		
+	</head>
+
+	<body>
+		<!-- CODICE INLINE -->
+			<!--EVENTO ONLICK -->
+		<button onclick="alert('ciao')">Action</button>
+		<a href="#" onclick="console.log('ciao')">Console Log</a>
+		<button onclick="console.log('ciao');alert('secondo ciao')">2 Istruzioni assieme</button>
+		
+		<!--CODICE TRA TAG <script></script>-->
+		<script>
+			//ESEMPIO DI CALLBACK (chiamata di una funzione all'interno di una funzione)	
+			setTimeout
+				(
+					function()
+					{
+						alert("callback!!")
+					},
+				5000
+				);
+			//JAVASCRIPT E' SINGLE-THREAD!!
+			
+			var start = new Date;
+			
+			setTimeout(
+				function()
+				{
+					var end = new Date;
+					console.log("la tua funzione è morta dopo ",end - start," ms")
+				},
+				0
+			);
+			alert("alert");
+			//FINCHE' NON CHIUDO L'ALERT, IL PROCESSO E' BLOCCATO!
+		</script>
+		<!--INCLUSIONE DI UN FILE JAVASCRIPT-->
+		<script src="js/codice.js"></script>				
+	</body>
+</html>

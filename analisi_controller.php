@@ -1,46 +1,35 @@
 <?php
 
-$testo="";
-if (isset($_POST["testo"]))
+function wordCounter($testo)
 {
-	$testo = $_POST["testo"];
+	$numparole = count(explode(" ", $testo));
+	return $numparole;
 }
-$numcaratteri = strlen($testo);
-$numparole = count(explode(" ", $testo));
-echo "<br />";
-echo "Numero di parole contenute: $numparole";
-echo "<br />";
-echo "<br />";
-echo "Numero di caratteri contenuti: $numcaratteri";
-echo "<br />";
-echo "<br />";
-
-$frequenza=[];
-
-$arrayparole = explode(" ", $testo);
-foreach ($arrayparole as $parola)
+function charCount($testo)
 {
-	if (isset($frequenza[$parola]))
-	{
-		$frequenza[$parola]++;
-	}
-	else
-	{
-		$frequenza[$parola]=1;
-	}
-	
+	$numcaratteri = strlen($testo);
+	return $numcaratteri;
 }
-arsort($frequenza);
-
-foreach ($frequenza as $parola => $numvolte)
+function howManyWords($testo)
 {
-	if ($numvolte == 1 || $numvolte == 2)
+	$frequenza=[];
+
+	$arrayparole = explode(" ", $testo);
+	foreach ($arrayparole as $parola)
 	{
-		echo "Le parole che compaiono una o due volte sono state omesse.";
-		break;
+		if (isset($frequenza[$parola]))
+		{
+			$frequenza[$parola]++;
+		}
+		else
+		{
+			$frequenza[$parola]=1;
+		}
+		
 	}
-	echo "La parola '$parola' compare '$numvolte' volte";
-	echo "<br />";
+	arsort($frequenza);
+
+	return $frequenza;
 }
 
 ?>
